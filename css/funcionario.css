@@ -1,0 +1,50 @@
+.infoFuncionarios{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.funcionario{
+    color: black;
+
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.funcionario img{
+    height: 100px;
+}
+
+.funcionario .nome{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.funcionario .email{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+}
+
+.funcionario .cadastro{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+}
+
+.funcionario .cpf{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+}
