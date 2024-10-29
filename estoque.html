@@ -19,6 +19,7 @@
     <div class="container">
         <header>
             <h1>Estocagem de medicamentos</h1>
+            <a href="index.html"><input class="btn btn-primary botoes-voltar" type="button" value="voltar"></a>
         </header>
 
         <!--Lista dos medicamentos-->
@@ -32,11 +33,11 @@
                 <div class="qnt">quantidade em estoque; aaaa</div>
                 <div class="validade">Validade: aaa</div>
 
-                <!--Botões (falta o link)-->
+                <!--Botões-->
                 <div class="btn">
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Solicitar"></a>
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Aleta por falta"></a>
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Aleta por validade"></a>
+                    <input class="btn btn-primary botoes" id="solicitar" type="button" onclick="pedidoMedicamento()" value="Solicitar">
+                    <input class="btn btn-primary botoes" id="alertaFalta" type="button" onclick="faltaMedicamento()" value="Alerta por falta">
+                    <input class="btn btn-primary botoes" id="alertaSolicitar" type="button" onclick="validadeMedicamento()" value="Alerta por validade">
                     
                 </div>
             </li>
@@ -51,13 +52,14 @@
 
                 <!--Botões (falta o link)-->
                 <div class="btn">
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Solicitar"></a>
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Aleta de falta"></a>
-                    <a href=""><input class="btn btn-primary botoes" type="button" value="Aleta por validade"></a>
+                    <input class="btn btn-primary botoes" type="button" value="Solicitar">
+                    <input class="btn btn-primary botoes" type="button" value="Aleta de falta">
+                    <input class="btn btn-primary botoes" type="button" value="Aleta por validade">
                 </div>
             </li>
         </ol>
     </div>
     
+    <script src="./js/medicamento.js"></script>
 </body>
 </html>
