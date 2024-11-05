@@ -1,0 +1,19 @@
+.notificacoesEstoque{
+    list-style: none;
+    margin: 0;
+    padding: 2rem 0 0 2rem;
+    border-radius: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.notificacao{
+    color: black;
+
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: blue;
+}
+

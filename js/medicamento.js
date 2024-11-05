@@ -5,16 +5,27 @@ function pedidoMedicamento(){
     alert("Pedido enviado")
 }
 
-function faltaMedicamento(){
-    const botaoSolicitar = document.getElementById("alertaFalta").value;
-    const errorMessage = document.getElementById("error-message");
+function faltaMedicamento() {
+    // Obtém as informações do medicamento
+    const numeroMedicamento = document.querySelector("#numMedicamento").textContent.replace("numero medicação: ", "");
+    const nomeMedicamento = document.querySelector("#nomelMedicamento").textContent.replace("nome: ", "");
 
-    alert("Notificação enviada.")
+    // Cria um objeto com os dados do medicamento
+    const medicamento = {
+        numero: numeroMedicamento,
+        nome: nomeMedicamento
+    };
+
+    // Adiciona a notificação ao localStorage
+    adicionarNotificacaoFalta(medicamento);
+
+    // Exibe um alerta confirmando a ação
+    alert("Notificação de falta de medicamento enviada.");
 }
 
-function validadeMedicamentoMedicamento(){
+
+function validadeMedicamento(){
     const botaoSolicitar = document.getElementById("alertaSolicitar").value;
-    const errorMessage = document.getElementById("error-message");
 
     alert("Notificação enviada.")
 }

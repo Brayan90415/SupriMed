@@ -31,26 +31,19 @@
     margin: 0;
     color: black;
     text-transform: capitalize;
-    font-size: 30px;
+    font-size: 20px;
 }
 
-.funcionario .email{
+.funcionario p{
     padding: 0;
     margin: 0;
     color: black;
     text-transform: capitalize;
 }
 
-.funcionario .cadastro{
-    padding: 0;
-    margin: 0;
-    color: black;
-    text-transform: capitalize;
+.infoFuncionarios .btn{
+    display: flex;
+    gap: 1rem;
 }
 
-.funcionario .cpf{
-    padding: 0;
-    margin: 0;
-    color: black;
-    text-transform: capitalize;
-}
+li::before { content: "\200B" }

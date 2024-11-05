@@ -28,10 +28,10 @@
             <!--Dados dos medicamentos-->
             <li class="medicamento">
                 <img src="./assets/med.png" alt="">
-                <div class="number">numero medicação: aaaa</div>
-                <div class="name">nome: aaaaa</div>
-                <div class="qnt">quantidade em estoque; aaaa</div>
-                <div class="validade">Validade: aaa</div>
+                <div class="number" id="numMedicamento">numero medicação: aaaa</div>
+                <div class="name" id="nomelMedicamento">nome: aaaaa</div>
+                <div class="qnt" id="qntMedicamento">quantidade em estoque; aaaa</div>
+                <div class="validade" id="validadeMedicamento">Validade: aaa</div>
 
                 <!--Botões-->
                 <div class="btn">
@@ -46,20 +46,21 @@
             <li class="medicamento">
                 <img src="./assets/med.png" alt="">
                 <div class="number">numero medicação: aaaa</div>
-                <div class="name">nome: aaaaa</div>
+                <div class="name" id="nomelMedicamento">nome: aaaaa</div>
                 <div class="qnt">quantidade em estoque: aaaa</div>
                 <div class="validade">validade: aaa</div>
 
                 <!--Botões (falta o link)-->
                 <div class="btn">
-                    <input class="btn btn-primary botoes" type="button" value="Solicitar">
-                    <input class="btn btn-primary botoes" type="button" value="Aleta de falta">
-                    <input class="btn btn-primary botoes" type="button" value="Aleta por validade">
+                    <input class="btn btn-primary botoes" id="solicitar" type="button" onclick="pedidoMedicamento()" value="Solicitar">
+                    <input class="btn btn-primary botoes" id="alertaFalta" type="button" onclick="faltaMedicamento()" value="Alerta por falta">
+                    <input class="btn btn-primary botoes" id="alertaSolicitar" type="button" onclick="validadeMedicamento()" value="Alerta por validade">
                 </div>
             </li>
         </ol>
     </div>
     
     <script src="./js/medicamento.js"></script>
+    <script src="./js/recadoEstoque.js"></script>
 </body>
 </html>
