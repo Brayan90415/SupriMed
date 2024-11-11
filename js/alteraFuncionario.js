@@ -1,39 +1,57 @@
-// Verifica se foi salvo no armazenamento local e atualiza a página principal
-if (document.getElementById('nomeFuncionario', 'emailFuncionario', 'cadastroFuncionario', 'cpfFuncionario')) {
-    const nomeExibido = document.getElementById('nomeFuncionario');
-    const emailExibido = document.getElementById('emailFuncionario');
-    const cadastroExibido = document.getElementById('cadastroFuncionario');
-    const cpfExibido = document.getElementById('cpfFuncionario');
+// Função para obter parâmetros da URL
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        nome: params.get("nome"),
+        email: params.get("email"),
+        cadastro: params.get("cadastro"),
+        cpf: params.get("cpf")
+    };
+}
 
-    const nomeSalvo = localStorage.getItem('nome');
-    const emailSalvo = localStorage.getItem('email');
-    const cadastroSalvo = localStorage.getItem('cadastro');
-    const cpfSalvo = localStorage.getItem('cpf');
+// Função para preencher o formulário com os dados do funcionário
+function preencherFormulario() {
+    const funcionario = getQueryParams();
+    document.getElementById("nome").value = funcionario.nome;
+    document.getElementById("email").value = funcionario.email;
+    document.getElementById("cadastro").value = funcionario.cadastro;
+    document.getElementById("cpf").value = funcionario.cpf;
+}
 
-    if (nomeSalvo, emailSalvo, cadastroSalvo, cpfSalvo) {
-        nomeExibido.textContent = `${nomeSalvo}`;
-        emailExibido.textContent = `${emailSalvo}`;
-        cadastroExibido.textContent = `${cadastroSalvo}`;
-        cpfExibido.textContent = `${cpfSalvo}`;
+// Função para salvar as alterações feitas no `localStorage`
+function salvarAlteracoes() {
+    // Pega os novos dados dos campos
+    const novoNome = document.getElementById("nome").value;
+    const novoEmail = document.getElementById("email").value;
+    const novoCadastro = document.getElementById("cadastro").value;
+    const novoCpf = document.getElementById("cpf").value;
+
+    // Recupera a lista de funcionários do localStorage
+    let funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
+
+    // Encontra o funcionário a ser alterado na lista
+    const funcionarioIndex = funcionarios.findIndex(funcionario => funcionario.cadastro === novoCadastro);
+
+    // Se encontrado, atualiza o funcionário na lista
+    if (funcionarioIndex !== -1) {
+        funcionarios[funcionarioIndex] = {
+            nome: novoNome,
+            email: novoEmail,
+            cadastro: novoCadastro,
+            cpf: novoCpf
+        };
+
+        // Salva novamente no localStorage com as alterações
+        localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
+
+        alert("Informações alteradas com sucesso!");
+    } else {
+        alert("Funcionário não encontrado.");
     }
 }
 
-// Função para salvar no armazenamento local
-if (document.getElementById('editarInfoBtn')) {
-    document.getElementById('editarInfoBtn').addEventListener('click', function() {
-        const novoNome = document.getElementById('nome').value;
-        const novoEmail = document.getElementById('email').value;
-        const novoCadastro = document.getElementById('cadastro').value;
-        const novoCpf = document.getElementById('cpf').value;
+// Chama a função para preencher o formulário com os dados do funcionário ao carregar a página
+window.onload = preencherFormulario;
 
-        if (novoNome, novoEmail, novoCadastro) {
-            localStorage.setItem('nome', novoNome);
-            localStorage.setItem('email', novoEmail);
-            localStorage.setItem('cadastro', novoCadastro);
-            localStorage.setItem('cpf', novoCpf);
-            alert('Alterado com sucesso!');
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-    });
-}
+// Adiciona o evento para o botão "Salvar"
+document.getElementById("editarInfoBtn").addEventListener("click", salvarAlteracoes);

@@ -10,6 +10,10 @@ function autenticarUsuario() {
         window.location.href = "administrador.html";
     }
 
+    else if(username === "Ana Paula" && cadastro === "123"){
+        window.location.href = "recadoPedido.html"
+    }
+
     else if (username === "" && cadastro === "") {
             // Formulário vazio
             alert("Preencha todos os campos")
