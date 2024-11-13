@@ -1,0 +1,51 @@
+.fornecedores{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.fornecedor{
+    color: black;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.fornecedor img{
+    height: 100px;
+}
+
+.fornecedor .nome{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.fornecedor p{
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+}
+
+.fornecedor .botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100px;
+}

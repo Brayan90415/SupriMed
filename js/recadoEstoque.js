@@ -25,6 +25,7 @@ function carregarNotificacoes() {
         item.innerHTML = `
             <strong>Número:</strong> ${medicamento.numero} <br>
             <strong>Nome:</strong> ${medicamento.nome} <br>
+            <strong>Nome:</strong> ${medicamento.fornecedor} <br>
             <button class="btn btn-primary" onclick='enviarPedido("${medicamento.numero}", "${medicamento.nome}")'>Solicitar</button>
         `;
         notificacoesEstoque.appendChild(item);
@@ -33,7 +34,7 @@ function carregarNotificacoes() {
 
 // Função para exibir mensagem de pedido enviado com informações do medicamento
 function enviarPedido(numero, nome) {
-    alert(`Pedido Enviado para ${nome} (Número: ${numero})`);
+    alert(`Pedido Enviado do medicamento ${nome} enviado. (Número: ${numero})`);
 }
 
 

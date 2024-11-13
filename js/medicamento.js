@@ -1,12 +1,13 @@
-//notificação de pedido/solicitação de medicamento
-function pedidoMedicamento(){
-    // Obtém as informações do medicamento
-    const numeroMedicamento = document.querySelector("#numMedicamento").textContent.replace("numero medicação: ", "");
-    const nomeMedicamento = document.querySelector("#nomelMedicamento").textContent.replace("nome: ", "");
-    const quantidadeMedicamento = document.querySelector("#qntMedicamento").textContent.replace("quantidade em estoque: ", "");
-    const validadeMedicamento = document.querySelector("#validadeMedicamento").textContent.replace("validade: ", "");
+// Função para adicionar notificação de pedido/solicitação de medicamento
+function pedidoMedicamento(element) {
+    const medicamentoElement = element.closest(".medicamento");
+    const numeroMedicamento = medicamentoElement.querySelector(".number span").textContent;
+    const nomeMedicamento = medicamentoElement.querySelector(".name span").textContent;
+    
+    // Converte a quantidade em estoque para um número inteiro
+    const quantidadeMedicamento = parseInt(medicamentoElement.querySelector(".qnt span").textContent, 10);
+    const validadeMedicamento = medicamentoElement.querySelector(".validade span").textContent;
 
-    // Cria um objeto com os dados do medicamento
     const medicamento = {
         numero: numeroMedicamento,
         nome: nomeMedicamento,
@@ -14,12 +15,14 @@ function pedidoMedicamento(){
         validade: validadeMedicamento
     };
 
-    // Adiciona a notificação ao localStorage
-    adicionarNotificacaoPedido(medicamento);
+    const notificacoes = JSON.parse(localStorage.getItem("notificacoesPedido")) || [];
+    notificacoes.push(medicamento);
+    localStorage.setItem("notificacoesPedido", JSON.stringify(notificacoes));
 
-    // Exibe um alerta confirmando a ação
-    alert("Pedido do medicamento enviada.");
+    alert(`Pedido do medicamento "${nomeMedicamento}" enviado.`);
 }
+
+
 
 //Notificação de falta
 function faltaMedicamento() {
