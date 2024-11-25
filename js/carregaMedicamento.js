@@ -16,8 +16,8 @@ function carregarMedicamentos() {
                 <div class="fornecedor">Fornecedor: <span>${medicamento.fornecedor}</span></div>
                 <div class="btn">
                     <input class="btn btn-primary" type="button" onclick="pedidoMedicamento(this)" value="Solicitar">
-                    <input class="btn btn-primary" type="button" onclick="faltaMedicamento()" value="Alerta por falta">
-                    <input class="btn btn-primary" type="button" onclick="validadeMedicamento()" value="Alerta por validade">
+                    <input class="btn btn-primary" type="button" onclick="faltaMedicamento(this)" value="Alerta por falta">
+                    <input class="btn btn-primary" type="button" onclick="validadeMedicamento(this)" value="Alerta por validade">
                 </div>
             `;
             listaMedicamentos.appendChild(item);

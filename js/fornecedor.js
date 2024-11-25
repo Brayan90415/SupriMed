@@ -1,5 +1,3 @@
 function solicitacao(){
-    const nome = document.getElementById("btn-fornecedor").value;
+    alert("Pedido enviado.")
 }
-
-document.getElementById("btn-fornecedor").addEventListener("click", solicitacao);

@@ -5,14 +5,14 @@
     border-radius: 2rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
 }
 
 .medicamento{
     color: black;
 
-    padding: 2rem;
+    padding: 2rem 0 0 8rem;
     border-radius: 1rem;
 
 }

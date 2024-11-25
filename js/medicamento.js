@@ -25,39 +25,50 @@ function pedidoMedicamento(element) {
 
 
 //Notificação de falta
-function faltaMedicamento() {
-    // Obtém as informações do medicamento
-    const numeroMedicamento = document.querySelector("#numMedicamento").textContent.replace("numero medicação: ", "");
-    const nomeMedicamento = document.querySelector("#nomelMedicamento").textContent.replace("nome: ", "");
+function faltaMedicamento(buttonElement) {
+    // Localiza o elemento pai do botão clicado
+    const medicamentoElement = buttonElement.closest(".medicamento");
+
+    // Obtém os dados do medicamento
+    const numeroMedicamento = medicamentoElement.querySelector(".number span").textContent;
+    const nomeMedicamento = medicamentoElement.querySelector(".name span").textContent;
+    const fornecedorMedicamento = medicamentoElement.querySelector(".fornecedor span").textContent;
 
     // Cria um objeto com os dados do medicamento
     const medicamento = {
         numero: numeroMedicamento,
-        nome: nomeMedicamento
+        nome: nomeMedicamento,
+        fornecedor : fornecedorMedicamento
     };
 
     // Adiciona a notificação ao localStorage
     adicionarNotificacaoFalta(medicamento);
 
     // Exibe um alerta confirmando a ação
-    alert("Notificação de falta de medicamento enviada.");
+    alert(`Notificação de falta do medicamento "${nomeMedicamento}" enviada.`);
 }
 
+
 //Notificação por validade
-function validadeMedicamento(){
-    // Obtém as informações do medicamento
-    const numeroMedicamento = document.querySelector("#numMedicamento").textContent.replace("numero medicação: ", "");
-    const nomeMedicamento = document.querySelector("#nomelMedicamento").textContent.replace("nome: ", "");
+function validadeMedicamento(button) {
+    // Encontra o elemento pai mais próximo com a classe "medicamento"
+    const medicamentoElement = button.closest(".medicamento");
+
+    // Obtém os dados do medicamento a partir dos elementos filhos
+    const numeroMedicamento = medicamentoElement.querySelector(".number span").textContent;
+    const nomeMedicamento = medicamentoElement.querySelector(".name span").textContent;
+    const fornecedorMedicamento = medicamentoElement.querySelector(".fornecedor span").textContent;
 
     // Cria um objeto com os dados do medicamento
     const medicamento = {
         numero: numeroMedicamento,
-        nome: nomeMedicamento
+        nome: nomeMedicamento,
+        fornecedor :fornecedorMedicamento
     };
 
     // Adiciona a notificação ao localStorage
     adicionarNotificacaoValidade(medicamento);
 
     // Exibe um alerta confirmando a ação
-    alert("Notificação de validade de medicamento enviada.");
+    alert(`Notificação de validade do medicamento "${nomeMedicamento}" enviada.`);
 }
